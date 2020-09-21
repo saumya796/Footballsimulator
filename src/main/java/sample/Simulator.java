@@ -15,8 +15,8 @@ public class Simulator {
         Position position = new Position(4, 5);
         Position position2 = new Position(4, 5);
 
-        Goalpost left = new Goalpost(29, 45,  position);
-        Goalpost right = new Goalpost(29, 45,  position2);
+        Goalpost left = new Goalpost(29, 45, position);
+        Goalpost right = new Goalpost(29, 45, position2);
 
         Ground ground = new Ground(30, 100, 30, 5, 15, 5, left, right);
         Football ball;
@@ -25,7 +25,7 @@ public class Simulator {
 
         Player brazil;
 
-                brazil = new Player(0.43, 0.26, 1, 0.12, "Yellow", goalpostdistance);
+        brazil = new Player(0.43, 0.26, 1, 0.12, "Yellow", goalpostdistance);
         brazil.setPlayerPosition(position);
         brazil.setGround(ground);
         brazil.setBall(ball);
@@ -41,11 +41,11 @@ public class Simulator {
 
         while (!ground.isGallHit) {
             brazil.runOrKick();
-            if (Controller.evaluate()){
+            if (Controller.evaluate()) {
                 continue;
             }
             england.runOrKick();
-            if (Controller.evaluate()){
+            if (Controller.evaluate()) {
                 continue;
             }
         }

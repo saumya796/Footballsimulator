@@ -16,7 +16,7 @@ public class Player {
     private Ground ground;
     private Position playerPosition;
     private Football ball;
-    private double kick ;
+    private double kick;
     private Position ballPosition;
     private double playerBallDistance;
     private Goalpost gallCourt;
@@ -24,6 +24,7 @@ public class Player {
     public Player(double v, double v1, int i, double v2, String red, double goalpostdistance) {
 
     }
+
     public Player(String name) {
     }
 
@@ -31,60 +32,79 @@ public class Player {
 
         return playerBallDistance;
     }
+
     public Position getPlayerPosition() {
         return playerPosition;
     }
+
     public void setPlayerPosition(Position PlayerPosition) {
         this.playerPosition = PlayerPosition;
     }
+
     public Ground getGround() {
         return ground;
     }
+
     public void setGround(Ground Ground) {
         this.ground = Ground;
     }
+
     public double getXMeters() {
         return xMeters;
     }
+
     public void setXMeters(double newXMeters) {
         this.xMeters = newXMeters;
     }
+
     public void setX1Meters(double newX1Meters) {
         this.x1Meters = newX1Meters;
     }
+
     public double getX1Meters() {
         return x1Meters;
     }
+
     public double getX2Meters() {
         return x2Meters;
     }
+
     public void setX2Meters(double newX2Meters) {
         this.x2Meters = newX2Meters;
     }
+
     public double getYMeters() {
         return yMeters;
     }
+
     public void setYMeters(double newYMeters) {
         this.yMeters = newYMeters;
     }
+
     public double getY1Meters() {
         return y1Meters;
     }
+
     public void setY1Meters(double newY1Meters) {
         this.y1Meters = newY1Meters;
     }
+
     public double getY2Meters() {
         return y2Meters;
     }
+
     public void setY2Meters(double newY2Meters) {
         this.y1Meters = newY2Meters;
     }
+
     public int getNumber() {
         return number;
     }
+
     public void setNumber(int newNumber) {
         this.number = newNumber;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -92,30 +112,39 @@ public class Player {
     public String getName() {
         return name;
     }
+
     public double getRadiusMeters() {
         return radiusMeters;
     }
+
     public void setRadiusMeters(double newRadiusMeters) {
         this.radiusMeters = newRadiusMeters;
     }
+
     public String getColor() {
         return color;
     }
+
     public void setColor(String newColor) {
         this.color = newColor;
     }
+
     public double getDMeters() {
         return distance;
     }
+
     public void setDMeters(double newDMeters) {
         this.distance = newDMeters;
     }
+
     public Football getBall() {
         return ball;
     }
+
     public void setBall(Football ball) {
         this.ball = ball;
     }
+
     public Player(double xMeters, double x1Meters, double x2Meters, double y1Meters, double y2Meters, double yMeters, int number, double radiusMeters, String color, double goalpostdistance) {
         this.xMeters = xMeters;
         this.x1Meters = x1Meters;
@@ -128,6 +157,7 @@ public class Player {
         this.color = color;
 
     }
+
     public void runOrKick() {
         System.out.println(("player position : ") + this.playerPosition.getX() + this.playerPosition.getY());
         System.out.println(("ball position : ") + this.ball.getBallPosition().getX() + this.ball.getBallPosition().getY());
@@ -141,25 +171,26 @@ public class Player {
         //step2: if distance is less than 5m, go 4m near
         if (playerBallDistance > 1) {
 
-                Position newPlayerPosition = calcPosition(this.playerPosition, this.ball.getBallPosition(), 2);
+            Position newPlayerPosition = calcPosition(this.playerPosition, this.ball.getBallPosition(), 2);
 
-                setPlayerPosition(newPlayerPosition);
+            setPlayerPosition(newPlayerPosition);
 
-                System.out.println("distance : " + playerBallDistance);
-                System.out.println(("player position : ") + this.playerPosition.getX() + this.playerPosition.getY());
-                System.out.println(("ball position : ") + this.ball.getBallPosition().getX() + this.ball.getBallPosition().getY());
+            System.out.println("distance : " + playerBallDistance);
+            System.out.println(("player position : ") + this.playerPosition.getX() + this.playerPosition.getY());
+            System.out.println(("ball position : ") + this.ball.getBallPosition().getX() + this.ball.getBallPosition().getY());
 
 
         }// else {
         // if distance is less than 1 m, he kick to the ball towards the middle of the goal
-        if (playerBallDistance <= 1){
+        if (playerBallDistance <= 1) {
 
-                backend.Position newBallPosition = calcPosition(this.ball.getBallPosition(), this.gallCourt.getgcPosition(), 5);
+            Position newBallPosition = calcPosition(this.ball.getBallPosition(), this.gallCourt.getgcPosition(), 5);
 
-                ball.setBallPosition(newBallPosition);
-            }
+            ball.setBallPosition(newBallPosition);
+        }
     }
-    public Position calcPosition(backend.Position initialPosition, backend.Position endPosition, double movement) {
+
+    public Position calcPosition(Position initialPosition, Position endPosition, double movement) {
         double x1 = initialPosition.getX();
         double y1 = initialPosition.getY();
         double x3 = endPosition.getX();
@@ -183,7 +214,7 @@ public class Player {
         }
     }
 
-    public double calcDistance(backend.Position initialPosition, backend.Position endPosition) {
+    public double calcDistance(Position initialPosition, Position endPosition) {
         //todo implement here
         double x1 = initialPosition.getX();
         double y1 = initialPosition.getY();
